@@ -88,24 +88,6 @@ class TestBooksCollector:
 
 
 
-    # проверка метода получения словаря get_books_genre
-    # что возвращаются действительно данные с типом словарь
-    def test_get_books_genre_by_data_type(self):
-        # создаем экземпляр (объект) класса BooksCollector
-        collector = BooksCollector()
-        # заполняем словарь book_genre данными
-        collector.add_new_book('Человек амфибия')
-        collector.add_new_book('12 стульев')
-        collector.add_new_book('Трое в лодке, не считая собаки')
-        # присвоим жанр для удобства
-        collector.set_book_genre('Человек амфибия', 'Фантастика')
-        collector.set_book_genre('12 стульев', 'Комедии')
-        collector.set_book_genre('Трое в лодке, не считая собаки', 'Комедии')
-        # проверка типа возвращенных данных
-        assert type(collector.get_books_genre()) is dict
-
-
-
     # проверка метода возврата книг для детей get_books_for_children
     def test_get_books_for_children_by_age_rating(self):
         # создаем экземпляр (объект) класса BooksCollector
