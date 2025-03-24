@@ -90,7 +90,7 @@ class TestBooksCollector:
 
     # проверка метода получения словаря get_books_genre
     # что возвращаются действительно данные с типом словарь
-    def test_get_books_genre_by_data_type(self):
+    def test_get_books_genre_by_data_correct(self):
         # создаем экземпляр (объект) класса BooksCollector
         collector = BooksCollector()
         # заполняем словарь book_genre данными
@@ -101,9 +101,15 @@ class TestBooksCollector:
         collector.set_book_genre('Человек амфибия', 'Фантастика')
         collector.set_book_genre('12 стульев', 'Комедии')
         collector.set_book_genre('Трое в лодке, не считая собаки', 'Комедии')
-        collector.get_books_genre()
-        # проверка типа возвращенных данных
-        assert type(collector.get_books_genre()) is dict
+        # словарь который должен получиться
+        required_dict = {
+            'Человек амфибия': 'Фантастика',
+            '12 стульев': 'Комедии',
+            'Трое в лодке, не считая собаки': 'Комедии'}
+        # словарь который получился
+        result_dict = collector.get_books_genre()
+        # проверка ОР с ФР
+        assert result_dict == required_dict
 
 
 
